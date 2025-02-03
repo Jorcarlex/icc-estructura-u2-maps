@@ -8,10 +8,10 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         // Ejecuta el ejemplo de uso de HashMap con ejemplos sencillos
-        runMapExamlpe();
+        // runMapExamlpe();
 
         // Ejecuta el ejemplo de gestión de empleados usando HashMap
-        runEmpleadoExample();
+        // runEmpleadoExample();
 
         // Ejecuta los ejercicios de sumatoria y anagramas
         runEjerccios();
@@ -49,7 +49,62 @@ public class App {
     }
 
     private static void runEjerccios() {
-        throw new UnsupportedOperationException("Not implemented yet");
+        // -------------------------------------------------------------------------------
+        // EJERCICIO #1
+        System.out.println("Ejercicio 1:\n");
+        String str1 = "listen", str2 = "silent";
+        System.out.println("Input: str1 = \"" + str1 + "\", str2 = \"" + str2 + "\"");
+        System.out.println("Output: " + Ejercicios.areAnagramsEje1(str1, str2));
 
+        System.out.println("--------------------");
+
+        str1 = "hello";
+        str2 = "bello";
+        System.out.println("Input: str1 = \"" + str1 + "\", str2 = \"" + str2 + "\"");
+        System.out.println("Output: " + Ejercicios.areAnagramsEje1(str1, str2));
+
+        System.out.println("--------------------");
+
+        str1 = "triangle";
+        str2 = "integral";
+        System.out.println("Input: str1 = \"" + str1 + "\", str2 = \"" + str2 + "\"");
+        System.out.println("Output: " + Ejercicios.areAnagramsEje1(str1, str2));
+        System.out.println("----------------------------");
+        // -------------------------------------------------------------------------------
+        // EJERCICIO #2
+
+        System.out.println("Ejercicio 2:\n");
+        int[] nums = { 9, 2, 3, 6 };
+        int objetivo = 5;
+        System.out.print("Input: ");
+        for (int i = 0; i < nums.length; i++) {
+            System.out.print(nums[i] + (i < nums.length - 1 ? "," : ""));
+        }
+        System.out.println(", objetivo = " + objetivo);
+
+        int[] resultado = Ejercicios.sumatoriaDeDos(nums, objetivo);
+        System.out.print("Output: ");
+        if (resultado != null) {
+            System.out.println(resultado[0] + "," + resultado[1]);
+        } else {
+            System.out.println("null");
+        }
+
+        System.out.println("--------------------");
+
+        objetivo = 10;
+        System.out.print("Input: ");
+        for (int i = 0; i < nums.length; i++) {
+            System.out.print(nums[i] + (i < nums.length - 1 ? "," : ""));
+        }
+        System.out.println(", objetivo = " + objetivo);
+
+        resultado = Ejercicios.sumatoriaDeDos(nums, objetivo);
+        System.out.print("Output: ");
+        if (resultado != null) {
+            System.out.println(resultado[0] + "," + resultado[1]);
+        } else {
+            System.out.println("null");
+        }
     }
 }

@@ -1,6 +1,7 @@
 package controllers;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Ejercicios {
 
@@ -27,8 +28,32 @@ public class Ejercicios {
      * Explicación: Ambas cadenas tienen los mismos caracteres con la misma
      * frecuencia.
      */
-    public static boolean areAnagrams(String str1, String str2) {
-        throw new UnsupportedOperationException("Not implemented yet");
+
+    // ---------- EJERCICIO #1 ----------
+    public static boolean areAnagramsEje1(String str1, String str2) {
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+
+        HashMap<Character, Integer> charCountMap = new HashMap<>();
+
+        // Contar frecuencia de caracteres en str1
+        for (char c : str1.toCharArray()) {
+            charCountMap.put(c, charCountMap.getOrDefault(c, 0) + 1);
+        }
+
+        // Restar frecuencia usando str2
+        for (char c : str2.toCharArray()) {
+            if (!charCountMap.containsKey(c)) {
+                return false;
+            }
+            charCountMap.put(c, charCountMap.get(c) - 1);
+            if (charCountMap.get(c) == 0) {
+                charCountMap.remove(c);
+            }
+        }
+
+        return charCountMap.isEmpty();
 
     }
 
@@ -47,7 +72,22 @@ public class Ejercicios {
      * Input: nums = [9,2,3,6], objetivo = 10
      * Output: null
      */
-    public int[] sumatoriaDeDos(int[] nums, int objetivo) {
-        throw new UnsupportedOperationException("Not implemented yet");
+
+    // ---------- EJERCICIO #2 ----------
+    public static int[] sumatoriaDeDos(int[] nums, int objetivo) {
+        Map<Integer, Integer> mapa = new HashMap<>();
+    
+        for (int i = 0; i < nums.length; i++) {
+            int complemento = objetivo - nums[i];
+    
+            if (mapa.containsKey(complemento)) {
+                return new int[]{mapa.get(complemento), i};
+            }
+    
+            mapa.put(nums[i], i);
+        }
+        
+        return null;
     }
+    
 }
